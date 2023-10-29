@@ -25,14 +25,15 @@ public class EmpController {
 	@GetMapping({"/", "/employee"})
 	public String home(Model m) {
 		
-		List<Employee> emp = empService.gettAllEmployee();
+		List<Employee> emp = empService.getAllEmployees();
 		m.addAttribute("emp", emp);
 		
 		return "index";
 	}
 	
 	@GetMapping("/addEmployee")
-	public String addEmp() {
+	public String addEmp(Model m) {
+		m.addAttribute("employee", new Employee());
 		return "addEmp";
 	}
 	
@@ -40,7 +41,7 @@ public class EmpController {
 	//e will store the data entered by user and pass here
 	public String formSubmit(@ModelAttribute Employee e, HttpSession session) {
 		System.out.println(e);
-		empService.addEmp(e);
+		empService.addEmployee(e);
 		//this message will be show when new data added
 		session.setAttribute("msg", "employee added successfully..");	
 		return "redirect:/";
@@ -52,7 +53,7 @@ public class EmpController {
 	@GetMapping("employee/edit/{id}")
 	public String edit(@PathVariable int id, Model m) {
 		
-		Employee  e = empService.getEmpId(id);
+		Employee  e = empService.getEmployeeById(id);
 		m.addAttribute("emp", e);
 		
 		return "edit";
@@ -60,15 +61,15 @@ public class EmpController {
 	
 	@PostMapping("/update")
 	public String updateEmp(@ModelAttribute Employee e) {
-		
-		empService.addEmp(e);
+		System.out.println(e);
+		empService.updateEmployee(e);
 		return "redirect:/";
 	}
 	
 	@GetMapping("employee/delete/{id}")
 	public String deleteEmp(@PathVariable int id) {
 		
-		empService.deleteEmp(id);
+		empService.deleteEmployee(id);
 		return "redirect:/";
 	}
 	

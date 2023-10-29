@@ -1,12 +1,12 @@
 package com.project.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+//import jakarta.persistence.Entity;
+//import jakarta.persistence.Id;
 
-@Entity
+//@Entity
 public class Employee {
 
-	@Id
+//	@Id
 	private int id;
 	private String EmpName;
 	private String EmpEmail;

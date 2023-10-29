@@ -1,25 +1,25 @@
 package com.project.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+//import jakarta.persistence.Column;
+//import jakarta.persistence.Entity;
+//import jakarta.persistence.Id;
 
-@Entity
-public class Student {
+//@Entity
+public class Student{
 
-	@Id
+//	@Id
 	private int id;
 	
-	@Column(name="student_name", nullable = false)
+//	@Column(name="student_name", nullable = false)
 	private String studentName;
 	
-	@Column(name="student_email")
+//	@Column(name="student_email")
 	private String studentEmail;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String city;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
 	private String course;
 	
 	public Student(int id, String studentName, String studentEmail, String city, String course) {
